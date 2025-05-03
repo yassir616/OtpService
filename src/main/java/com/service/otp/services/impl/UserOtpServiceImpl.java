@@ -38,7 +38,7 @@ public class UserOtpServiceImpl implements UserOtpService {
     @Override
     public UserOtp findOrCreateUser(CreateUserRequestModel requestModel, String systemName) {
         SystemConnected system = systemConnectedRepository.findBySystemName(systemName)
-                .orElseThrow(() -> new SystemNotFoundException("System not found"));
+                .orElseThrow(() -> new SystemNotFoundException("Système non trouvé"));
 
         return userOtpRepository.findByLoginAndSystemConnected(requestModel.getUserLogin(), system)
                 .orElseGet(() -> {

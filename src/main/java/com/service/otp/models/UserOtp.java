@@ -3,7 +3,6 @@ package com.service.otp.models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.CascadeType;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
@@ -21,12 +20,12 @@ import lombok.Setter;
 @AllArgsConstructor
 public class UserOtp extends AbstractBaseEntity {
 
-    @NotNull(message = "Login cannot be null")
+    @NotNull(message = "Le login ne peut pas être nul")
     private String login;
 
-    @Pattern(regexp = "\\d{10}", message = "Phone number must contain exactly 10 digits")
+    @Pattern(regexp = "\\d{10}", message = "Le numéro de téléphone doit contenir exactement 10 chiffres")
     private String phoneNumber;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     private SystemConnected systemConnected;
 }

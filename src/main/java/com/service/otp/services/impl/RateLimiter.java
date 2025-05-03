@@ -27,8 +27,8 @@ public class RateLimiter {
                 requestModel.getSystemName(),
                 new Date(System.currentTimeMillis() - 24 * 60 * 60 * 1000));
         if (requestCount >= Constants.MAX_REQUESTS_PER_DAY) {
-            log.info("Rate limit check passed for user: {}", requestModel.getCreateUserRequestModel().getUserLogin());
-            throw new RateLimitExceededException("Rate limit exceeded. Please try again later.");
+            log.info("Vérification de la limite de taux réussie pour l'utilisateur : {}", requestModel.getCreateUserRequestModel().getUserLogin());
+            throw new RateLimitExceededException("Limite de taux dépassée. Veuillez réessayer plus tard.");
         }
     }
 }

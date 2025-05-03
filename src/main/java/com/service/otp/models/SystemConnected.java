@@ -22,7 +22,7 @@ public class SystemConnected extends AbstractBaseEntity {
 
     private static final long serialVersionUID = 1L;
 
-    @NotNull(message = "System name cannot be null")
+    @NotNull(message = "Le nom du système ne peut pas être nul")
     private String systemName;
 
     @JsonIgnore

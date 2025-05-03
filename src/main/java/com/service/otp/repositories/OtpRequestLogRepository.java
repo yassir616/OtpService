@@ -13,4 +13,6 @@ public interface OtpRequestLogRepository extends JpaRepository<OtpRequestLog, Lo
     long countRequestsByLoginAndSystemNameInLast24Hours(@Param("userLogin") String userLogin, 
                                                         @Param("systemName") String systemName, 
                                                         @Param("startTime") Date startTime);
+
+    int deleteByRequestTimeBefore(Date requestTime);
 }

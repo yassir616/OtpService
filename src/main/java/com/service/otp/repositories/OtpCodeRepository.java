@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
+
 @Repository
 public interface OtpCodeRepository extends JpaRepository<OtpCode, String> {
     OtpCode findByCodeValue(String codeValue);
@@ -14,4 +16,6 @@ public interface OtpCodeRepository extends JpaRepository<OtpCode, String> {
     OtpCode findValidOtp(@Param("codeValue") String codeValue, 
                      @Param("systemName") String systemName, 
                      @Param("userLogin") String userLogin);
+
+    int deleteByExpirationDateBefore(Date expirationDate);
 }

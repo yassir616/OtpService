@@ -23,7 +23,7 @@ public class OtpCode extends AbstractBaseEntity {
 
     private static final long serialVersionUID = 1L;
 
-    @NotNull(message = "Code cannot be null")
+    @NotNull(message = "Le code ne peut pas être nul")
     private String codeValue;
 
     @ManyToOne

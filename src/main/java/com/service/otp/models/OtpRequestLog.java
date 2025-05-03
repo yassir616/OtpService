@@ -18,7 +18,7 @@ import java.util.Date;
 public class OtpRequestLog extends AbstractBaseEntity {
 
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private UserOtp userOtp;
 
     @Temporal(TemporalType.TIMESTAMP)

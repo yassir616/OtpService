@@ -33,7 +33,7 @@ public class OtpCodeServiceController {
                 requestModel.getSystemName(),
                 requestModel.getUserLogin()
             );
-            return ResponseEntity.ok("OTP is valid");
+            return ResponseEntity.ok("OTP valide");
         } catch (RuntimeException e) {
             if (e.getMessage().equals("Code Expiré")) {
                 return ResponseEntity.status(HttpStatus.GONE).body(e.getMessage());

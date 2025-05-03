@@ -30,7 +30,7 @@ public class OtpUserServiceController {
             String errorMessage = ex.getConstraintViolations().stream()
                     .map(violation -> violation.getMessage())
                     .findFirst()
-                    .orElse("Validation error occurred");
+                    .orElse("Une erreur de validation s'est produite");
             return ResponseEntity.badRequest().body(errorMessage);
         }
     }
