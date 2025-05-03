@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,6 +23,7 @@ public class OtpCode extends AbstractBaseEntity {
 
     private static final long serialVersionUID = 1L;
 
+    @NotNull(message = "Code cannot be null")
     private String codeValue;
 
     @ManyToOne
