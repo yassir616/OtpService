@@ -1,5 +1,8 @@
 package com.service.otp.models;
 
+
+import java.util.Date;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.FetchType;
@@ -28,4 +31,8 @@ public class UserOtp extends AbstractBaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private SystemConnected systemConnected;
+
+    private Long failedAttempt;
+
+    private Date blockDate;
 }

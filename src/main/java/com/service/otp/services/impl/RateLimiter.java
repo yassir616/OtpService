@@ -1,6 +1,7 @@
 package com.service.otp.services.impl;
 
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import org.springframework.stereotype.Service;
 
@@ -24,8 +25,8 @@ public class RateLimiter {
     public void checkRateLimit(CreateOtpCodeRequestModel requestModel) {
         long requestCount = otpRequestLogRepository.countRequestsByLoginAndSystemNameInLast24Hours(
                 requestModel.getCreateUserRequestModel().getUserLogin(),
-                requestModel.getSystemName(),
-                new Date(System.currentTimeMillis() - 24 * 60 * 60 * 1000));
+                requestModel.getSystemName(),  
+                new Date(System.currentTimeMillis() - TimeUnit.HOURS.toMillis(24)));
         if (requestCount >= Constants.MAX_REQUESTS_PER_DAY) {
             log.info("Vérification de la limite de taux réussie pour l'utilisateur : {}", requestModel.getCreateUserRequestModel().getUserLogin());
             throw new RateLimitExceededException("Limite de taux dépassée. Veuillez réessayer plus tard.");

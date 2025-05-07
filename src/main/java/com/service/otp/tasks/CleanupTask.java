@@ -22,7 +22,7 @@ public class CleanupTask {
         this.otpRequestLogRepository = otpRequestLogRepository;
     }
 
-    @Scheduled(cron = "0 0 2 * * ?")
+    @Scheduled(cron = "0 34 16 * * ?")
     @Transactional
     public void cleanExpiredData() {
         Date cutoffDate = new Date(System.currentTimeMillis() - TimeUnit.HOURS.toMillis(48));

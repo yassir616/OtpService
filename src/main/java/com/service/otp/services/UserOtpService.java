@@ -6,4 +6,6 @@ import com.service.otp.requestModels.CreateUserRequestModel;
 public interface UserOtpService {
     UserOtp save(UserOtp userOtp);
     UserOtp findOrCreateUser(CreateUserRequestModel requestModel,String systemName);
+    void resetFailedAttemptsUser(String id);
+    void incrementFailedAttemptsAndBlockUser(String userId);
 }
